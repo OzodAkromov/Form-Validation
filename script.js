@@ -5,8 +5,6 @@ const active_input = document.querySelector('.input-box.number')
 const active_input_2 = document.querySelector('.input-box.email')
 const button = document.querySelector('.type')
 
-console.log(active_input, active_input_2, button);
-
 // name
 text.addEventListener('input', () => {
     const value = text.value.length
@@ -18,6 +16,7 @@ text.addEventListener('input', () => {
     } else {
         text.parentElement.classList.remove('valid')
         text.parentElement.classList.add('invalid')
+        active_input.classList.remove('active')
     }
 
     if (value === 0) text.parentElement.classList.remove('valid', 'invalid')
@@ -30,6 +29,7 @@ number.addEventListener('keypress', (e) => {
         e.preventDefault()
         number.parentElement.classList.remove('valid')
         number.parentElement.classList.add('invalid')
+        active_input_2.classList.remove('active')
     }
     else {
         active_input_2.classList.add('active')
@@ -56,6 +56,7 @@ email.addEventListener("input", () => {
     } else {
         email.parentElement.classList.remove('valid')
         email.parentElement.classList.add('invalid')
+        button.style.display = 'none'
     }
 
     if (email.value.length === 0) email.parentElement.classList.remove('valid', 'invalid')
